@@ -107,6 +107,8 @@ void main() {
      }
 
 
+      //falta aplicar os descontos
+
       print('O valor total do serviço é R\$$precoTotal');
 
 
