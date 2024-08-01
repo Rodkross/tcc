@@ -2,8 +2,10 @@ import 'dart:io';
 
 void main() {
 
+  int contadorCliente = 0;
 
-  print('Digite 1 se você for cliente e 2 para funcionário');
+  for(contadorCliente = 0; contadorCliente < 18; contadorCliente++){
+    print('Digite 1 se você for cliente e 2 para funcionário');
   var identificacaoLeitura = stdin.readLineSync() as String;
   int identiicacao = int.parse(identificacaoLeitura);
 
@@ -171,4 +173,7 @@ void main() {
     }
     }
   }  
+  }
+
+  
 }
