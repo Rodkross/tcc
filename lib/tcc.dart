@@ -67,6 +67,7 @@ void main() {
       double hidratacao = 39.99;
 
       double precoTotal = 0.00;
+      double desconto = 0.00;
       
 
 
@@ -106,10 +107,20 @@ void main() {
       precoTotal = precoTotal + hidratacao;
      }
 
+     if(resposta1 == 'S' && resposta2 == 'S'){
+      desconto = (racaoCanin15 + banhoTosa) * 0.10;
+      precoTotal = precoTotal  - desconto;
+     }
+
+     if(resposta2 == 'S' && resposta4 == 'S'){
+      desconto = (banhoTosa + hidratacao) * 0.20;
+      precoTotal = precoTotal - desconto;
+     }
+
 
       //falta aplicar os descontos
 
-      print('O valor total do serviço é R\$$precoTotal');
+      print('O valor total do serviço é R\$${precoTotal.toStringAsFixed(2)}');
 
 
       
