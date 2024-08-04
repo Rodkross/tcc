@@ -12,21 +12,31 @@ void main() {
   int totalClientes = 0;
   var totalOrcamentos = 0;
 
+
+  //enquanto variavel novoAtendimeto for igual a S
   while (novoAtendimento.toUpperCase() == 'S') {
+    //exibir mensagem 
     print('Deseja um novo atentimento? S ou N.');
+    //recebe a resposta e armazena na variavel
     novoAtendimento = stdin.readLineSync() as String;
 
     //valida a resposta de novo atendimento
     if (novoAtendimento.toUpperCase() == 'S') {
+      //exibe mensagem
       print('Digite 1 se você for cliente e 2 para funcionário');
+      //recebe resposta da e armazena na variavel
       var identificacaoLeitura = stdin.readLineSync() as String;
+      //armazena numa variavel tipada por numero
       int identificacao = int.parse(identificacaoLeitura);
 
-      //validacao de usuarios
+      
+      //validacao de usuarios cliente
       if (identificacao == 1) {
+        //exibe mensagem
         print('Digite seu nome:');
+        //armazena na variavel tipada por texto
         String nomeCliente = stdin.readLineSync() as String;
-
+        //exibe mensagem
         print(
             '"Prezado(a), $nomeCliente. Seja muito bem-vindo(a) à nossa loja."');
         //print('Oferecemos em nossa loja produtos e serviços para seu PET. Para venda de produtos, procure o colaborador Junior e, para serviços como banho ou tosa, procure o colaborador Neto. Obrigado e esperamos que tenha uma ótima experiência em nossa loja.');
@@ -40,9 +50,12 @@ void main() {
         print('6 - Promoção II 20% de desconto.');
         print('10 – Sair.');
 
+        //armazena resposta do menu na variavel
         var menuLeitura = stdin.readLineSync() as String;
+        //armazena e tipa a variavel em numero
         int menu = int.parse(menuLeitura);
 
+        //abres o escolha caso  e lista o retorno de cada caso / break para findar cada escolha
         switch (menu) {
           case 1:
             print(
@@ -69,26 +82,37 @@ void main() {
           case 10:
             print('O total de clientes atendidos foi $totalClientes.');
             break;
+
+            // default => quando for escolhida uma opcao nao listada essa sera a padrao
           default:
             print('Opção inválida.');
         }
+
+        //incrementa ao fim do processo de cliente mais um atendimento na varial (contador)
         totalClientes++;
         
+
+        //validacao de usuario funcionario
       } else if (identificacao == 2) {
+        //exibe mensagem
         print('Digite o código de acesso:');
+        //armazena resposta na variavel de leitura
         String codigoAcessoLeitura = stdin.readLineSync() as String;
+        //tipa a variavel de leitura em texto e transforma em caixa baixa
         String codigoAcesso = codigoAcessoLeitura.toLowerCase();
 
+        //validacao do codigo de acesso pra funcionarios
         if (codigoAcesso == 'cuidapetrestrito') {
-          //tabela de precos
+
+
+          //armazenando tabela de precos em variaveis (em pontos flutuantes)
           double racaoCanin15 = 280.00;
           double banhoTosa = 54.00;
           double tosaHigienica = 10.99;
           double hidratacao = 39.99;
-
           double precoTotal = 0.00;
           double desconto = 0.00;
-
+    
           print('Você estea no mode de  ordem de serviço.');
 
           print(
@@ -108,6 +132,7 @@ void main() {
           var resposta4leitura = stdin.readLineSync() as String;
           String resposta4 = resposta4leitura.toUpperCase();
 
+          //validacao das respostas pra possiveis compras e incrementando a variavel preco total 
           if (resposta1 == 'S') {
             precoTotal = precoTotal + racaoCanin15;
           }
@@ -124,22 +149,26 @@ void main() {
             precoTotal = precoTotal + hidratacao;
           }
 
+          //validacao dos descontos em caso de compra casada de dois itens
           if (resposta1 == 'S' && resposta2 == 'S') {
             desconto = (racaoCanin15 + banhoTosa) * 0.10;
             precoTotal = precoTotal - desconto;
           }
 
+          //validacao dos descontos em caso de compra casada de dois itens
           if (resposta2 == 'S' && resposta4 == 'S') {
             desconto = (banhoTosa + hidratacao) * 0.20;
             precoTotal = precoTotal - desconto;
           }
 
-          //falta aplicar os descontos
-
+          //exibe o total dos servicos fixado em duas casas decimais apos a virgula
           print(
-              'O valor total do serviço é R\$${precoTotal.toStringAsFixed(2)}');
+          'O valor total do serviço é R\$${precoTotal.toStringAsFixed(2)}');
 
+          //incementa o valor dessa operacao a variavel total de orcamento
           totalOrcamentos++;
+
+          //caso o codigo de acessos seja invalido volta ao menu de clientes (pesquisar como tranformar em uma funcao chamada ao inves de reescrever)
         } else {
           print('Digite seu nome:');
           String nomeCliente = stdin.readLineSync() as String;
@@ -197,13 +226,12 @@ void main() {
     }
   }
 
+  //valida a resposta diferente de um novo atendimento sendo true, exibe clientes atendidos e total do orcamento
   if (novoAtendimento.toUpperCase() != 'S') {
     print('O total de clientes atendidos foi $totalClientes.');
     print('O total de orcamentos foi $totalOrcamentos.');
   }
 
-  
+  //fim do programa
 
-  //for (contadorCliente = 0; contadorCliente < 18; contadorCliente++) {
-  //}
-}
+ }
