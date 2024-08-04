@@ -13,7 +13,7 @@ void main() {
   var totalOrcamentos = 0;
 
 
-  //enquanto variavel novoAtendimeto for igual a S
+  //faca pelo menos uma vez
   do{
     //exibir mensagem 
     print('Deseja um novo atentimento? S ou N.');
@@ -224,7 +224,9 @@ void main() {
         print('Opção inválida.');
       }
     }
-  }while (novoAtendimento.toUpperCase() == 'S'); 
+  }
+  //enquanto variavel novoAtendimeto for igual a S
+  while (novoAtendimento.toUpperCase() == 'S'); 
 
   //valida a resposta diferente de um novo atendimento sendo true, exibe clientes atendidos e total do orcamento
   if (novoAtendimento.toUpperCase() != 'S') {
