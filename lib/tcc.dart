@@ -14,7 +14,7 @@ void main() {
 
 
   //enquanto variavel novoAtendimeto for igual a S
-  while (novoAtendimento.toUpperCase() == 'S') {
+  do{
     //exibir mensagem 
     print('Deseja um novo atentimento? S ou N.');
     //recebe a resposta e armazena na variavel
@@ -113,7 +113,7 @@ void main() {
           double precoTotal = 0.00;
           double desconto = 0.00;
     
-          print('Você estea no mode de  ordem de serviço.');
+          print('Você estea no modo de  ordem de serviço.');
 
           print(
               'O cliente comprou ração Ração Royal Canin Indor 7,5kg? Digite S ou N.');
@@ -224,7 +224,7 @@ void main() {
         print('Opção inválida.');
       }
     }
-  }
+  }while (novoAtendimento.toUpperCase() == 'S'); 
 
   //valida a resposta diferente de um novo atendimento sendo true, exibe clientes atendidos e total do orcamento
   if (novoAtendimento.toUpperCase() != 'S') {
